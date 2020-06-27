@@ -16,3 +16,13 @@ def index(request):
                }
 
     return render(request, 'info/index.html', context)
+
+def resume(request):
+    edu = Education.objects.all()[:1]
+    projects = Project.objects.all()
+    jobs = job.objects.all()
+    extra = Extracurricular.objects.all()[1:2]
+
+    context = {'edu': edu, 'projects': projects, 'jobs': jobs, 'extra': extra}
+
+    return render(request, 'info/resume.html', context)

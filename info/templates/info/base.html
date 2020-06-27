@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'info/assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+    {% block head_block %}
+
+    {% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item {% if request.resolver_match.url_name == 'home' %} active {% endif %}">
+            <a class="nav-link" href="{% url 'info:home' %}">Home</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'resume' %} active {% endif %}" href="{% url 'info:resume' %}">Resume</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link " href="#">Blog</a>
+          </li>
+         </ul>
+      </div>
+    </nav>
+
+ {% block body_block %}
+
+ {% endblock %}
+
+<!-- Javascript -->
+    <script type="text/javascript" src="{% static 'info/assets/plugins/jquery-3.4.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'info/assets/plugins/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'info/assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'info/assets/plugins/jquery-rss/dist/jquery.rss.min.js' %}"></script>
+</body>
+</html>
