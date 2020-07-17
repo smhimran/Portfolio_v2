@@ -4,7 +4,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 SECRET_KEY = '*1065%flo-7ip#4ik@j_fhct^hcz)ahf5&ub1s^$)j9q)1mf*w'
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['smhimran.herokuapp.com', '127.0.0.1']
 
