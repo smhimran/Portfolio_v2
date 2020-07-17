@@ -24,7 +24,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = SECRET_KEY
 
-
+DEBUG = DEBUG
 
 cloudinary.config(
     cloud_name = CLOUDINARY_CLOUD_NAME,
@@ -89,7 +89,9 @@ PASSWORD_HASHERS = [
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-
+DATABASES = {
+    'default': DB_CONFIG
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
