@@ -13,6 +13,7 @@
 	    </section>
 	    <section class="blog-list px-3 py-5 p-md-5">
 		    <div class="container">
+				{% if posts %}
 				{% for post in posts %}
 			    <div class="item mb-5">
 				    <div class="media">
@@ -27,7 +28,9 @@
 				    </div><!--//media-->
 			    </div><!--//item-->
 				{% endfor %}
-
+				{% else %}
+				<h4>No posts right now!</h4>
+			    {% endif %}
 			    
 			    <nav class="blog-nav nav nav-justified my-5">
 				  <a class="nav-link-prev nav-item nav-link rounded-left" {% if posts.has_previous %} href="?page={{ posts.previous_page_number }}" {% else %} href="javascript:void(0)" style="background-color: grey" {% endif %}>Previous<i class="arrow-prev fas fa-long-arrow-alt-left"></i></a>
