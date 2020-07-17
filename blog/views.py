@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+from django.http import HttpResponseNotFound
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Post
@@ -49,6 +50,8 @@ def all(request):
     return render(request, 'blog/blog-list.html', {'posts': posts})
 
 def write(request):
+    if request.user.is_superuser == False:
+        return HttpResponseNotFound("Forbidden! You do not have permission to visit this site")
     if request.method == "GET":
         form = PostForm()
         return render(request, 'blog/write-blog.html', {'form': form})
@@ -78,6 +81,8 @@ def write(request):
             return render(request, 'blog/write-blog.html', {'err_msg': err_msg})
 
 def edit(request, slug):
+    if request.user.is_superuser == False:
+        return HttpResponseNotFound("Forbidden! You do not have permission to visit this site")
     if request.method == "GET":
         post = Post.objects.get(slug=slug)
         form = PostForm(instance=post)
