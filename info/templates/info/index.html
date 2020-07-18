@@ -28,6 +28,13 @@
     
     <!-- Theme CSS -->  
     <link id="theme-style" rel="stylesheet" href="{% static 'info/assets/css/styles.css' %}">
+     <!-- github calendar plugin -->
+    <script type="text/javascript" src="{% static 'info/assets/plugins/github-calendar/dist/github-calendar.min.js' %}"></script>
+    <!-- github activity plugin -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+    <script type="text/javascript" src="{% static 'info/assets/plugins/github-activity/github-activity-0.1.5.min.js' %}"></script>
+    <!-- custom js -->
+    <script type="text/javascript" src="{% static 'info/assets/js/main.js' %}"></script>
 
 {% endblock %}
 
@@ -344,28 +351,22 @@
         </div><!--//row-->
     </div><!--//masonry-->
     
-    <!-- ******FOOTER****** -->
-    <footer class="footer">
-        <div class="container text-center">
-                <!--/* This template is free as long as you keep the attribution link below. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
-                <footer class="footer text-center py-4">
-					<!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-					<small class="copyright text-muted">Designed with <i class="fas fa-heart"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
-				</footer>
-        </div><!--//container-->
-    </footer><!--//footer-->
+<!--    &lt;!&ndash; ******FOOTER****** &ndash;&gt;-->
+<!--    <footer class="footer">-->
+<!--        <div class="container text-center">-->
+<!--                &lt;!&ndash;/* This template is free as long as you keep the attribution link below. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */&ndash;&gt;-->
+<!--                <footer class="footer text-center py-4">-->
+<!--					&lt;!&ndash;/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */&ndash;&gt;-->
+<!--					<small class="copyright text-muted">Designed with <i class="fas fa-heart"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>-->
+<!--				</footer>-->
+<!--        </div>&lt;!&ndash;//container&ndash;&gt;-->
+<!--    </footer>&lt;!&ndash;//footer&ndash;&gt;-->
  
     <!-- Javascript -->          
     <script type="text/javascript" src="{% static 'info/assets/plugins/jquery-3.4.1.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'info/assets/plugins/popper.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'info/assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'info/assets/plugins/jquery-rss/dist/jquery.rss.min.js' %}"></script>
-    <!-- github calendar plugin -->
-    <script type="text/javascript" src="{% static 'info/assets/plugins/github-calendar/dist/github-calendar.min.js' %}"></script>
-    <!-- github activity plugin -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
-    <script type="text/javascript" src="{% static 'info/assets/plugins/github-activity/github-activity-0.1.5.min.js' %}"></script>
-    <!-- custom js -->
-    <script type="text/javascript" src="{% static 'info/assets/js/main.js' %}"></script>
+
 {% endblock %}
 
