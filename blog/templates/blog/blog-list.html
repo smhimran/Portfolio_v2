@@ -1,0 +1,39 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+{% load martortags %}
+
+{% block title %}All Blogs{% endblock %}
+
+{% block body %}
+    <div class="main-wrapper">
+
+	    <section class="blog-list px-3 py-5 p-md-5">
+		    <div class="container">
+				{% if posts %}
+				{% for post in posts %}
+			    <div class="item mb-5">
+				    <div class="media">
+					    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{{ post.banner }}" alt="image">
+					    <div class="media-body">
+						    <h3 class="title mb-1"><a href="{% url 'blog:detail' post.slug %}">{{ post.title }}</a></h3>
+							<div class="meta mb-1"><span class="date">Last edited {{ post.timestamp|date }}</span></div>
+						    <div class="intro">{{ post.summary|safe_markdown }}</div>
+						    <a class="more-link" href="{% url 'blog:detail' post.slug %}">Read more &rarr;</a>
+							<a class="more-link" href="{% url 'blog:detail' post.slug %}#disqus_thread"></a>
+					    </div><!--//media-body-->
+				    </div><!--//media-->
+			    </div><!--//item-->
+				{% endfor %}
+				{% else %}
+				<h4>No posts right now!</h4>
+			    {% endif %}
+			    <nav class="blog-nav nav nav-justified my-5">
+				  <a class="nav-link-prev nav-item nav-link rounded-left" {% if posts.has_previous %} href="?page={{ posts.previous_page_number }}" {% else %} href="javascript:void(0)" style="background-color: grey" {% endif %}>Previous<i class="arrow-prev fas fa-long-arrow-alt-left"></i></a>
+				  <a class="nav-link-next nav-item nav-link rounded-right" {% if posts.has_next %} href="?page={{ posts.next_page_number }}" {% else %} href="javascript:void(0)" style="background-color: grey" {% endif %}>Next<i class="arrow-next fas fa-long-arrow-alt-right"></i></a>
+				</nav>
+				
+		    </div>
+	    </section>
+
+{% endblock %}

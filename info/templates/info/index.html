@@ -33,8 +33,8 @@
 
 {% block body_block %}
     <!-- ******HEADER****** --> 
-    <header class="header">
-        <div class="container clearfix">                       
+    <header class="header" style="padding-top: 50px; padding-bottom: 20px; background-color: #FFFFFF;">
+        <div class="container clearfix" >
             <img class="profile-image img-fluid float-left rounded-circle" height="200px" width="200px" src="{% static 'info/assets/images/profile1.jpg' %}" alt="profile image" />
             <div class="profile-content float-left">
                 <h1 class="name">Shah Habibul Imran</h1>
@@ -74,7 +74,7 @@
                                 <div class="featured-image has-ribbon">
                                     <a href="{{ top.link }}" target="_blank">
                                         {% if top.image %}
-                                    <img class="img-fluid project-image rounded shadow-sm" src="{{ top.image.url }}" alt="{{ top.title }}" />
+                                    <img class="img-fluid project-image rounded shadow-sm" src="{{ top.image }}" alt="{{ top.title }}" />
                                         {% endif %}
                                     </a>
                                     <div class="ribbon">
@@ -345,15 +345,15 @@
     </div><!--//masonry-->
     
     <!-- ******FOOTER****** -->
-    <footer class="footer">
-        <div class="container text-center">
-                <!--/* This template is free as long as you keep the attribution link below. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
-                <footer class="footer text-center py-4">
-					<!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-					<small class="copyright text-muted">Designed with <i class="fas fa-heart"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
-				</footer>
-        </div><!--//container-->
-    </footer><!--//footer-->
+<!--    <footer class="footer">-->
+<!--        <div class="container text-center">-->
+<!--                &lt;!&ndash;/* This template is free as long as you keep the attribution link below. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */&ndash;&gt;-->
+<!--                <footer class="footer text-center py-4">-->
+<!--					&lt;!&ndash;/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */&ndash;&gt;-->
+<!--					<small class="copyright text-muted">Designed with <i class="fas fa-heart"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>-->
+<!--				</footer>-->
+<!--        </div>&lt;!&ndash;//container&ndash;&gt;-->
+<!--    </footer>&lt;!&ndash;//footer&ndash;&gt;-->
  
     <!-- Javascript -->          
     <script type="text/javascript" src="{% static 'info/assets/plugins/jquery-3.4.1.min.js' %}"></script>

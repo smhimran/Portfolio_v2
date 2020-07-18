@@ -15,7 +15,7 @@ class Education(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=500)
     summary = models.TextField(max_length=1000)
-    image = models.ImageField(upload_to='info/images/Projects',blank=True, null=True)
+    image = models.CharField(max_length=2000, null=True, blank=True)
     link = models.URLField()
 
     def __str__(self):

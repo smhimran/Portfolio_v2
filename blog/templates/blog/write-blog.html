@@ -1,0 +1,51 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+{% load martortags %}
+
+{% block title %}Write a blog - Imran's Blog{% endblock %}
+
+{% block style %}
+
+{% endblock %}
+
+{% block body %}
+
+<div class="main-wrapper">
+		    <div class="container">
+                {% if suc_msg %}
+                <div class="alert alert-success">
+                    <strong>{{ suc_msg }}</strong>
+                  </div>
+                {% endif %}
+                {% if err_msg %}
+                <div class="alert alert-danger">
+                    <strong>{{ err_msg }}</strong>
+                  </div>
+                {% endif %}
+                <form class="signup-form justify-content-center pt-3" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="title"><strong>Title:</strong></label>
+                         <input type="text" name="title" id="title" placeholder="Title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label ><strong>Content</strong></label>
+                        {{ form.media }}
+                        {{ form }}
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="banner"><strong>Banner</strong></label>
+                        <input type="file" id="banner" name="banner">
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-primary">Post</button>
+                    </div>
+                </form>
+            </div>
+
+</div>
+
+
+{% endblock %}

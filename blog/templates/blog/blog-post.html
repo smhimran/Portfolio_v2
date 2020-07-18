@@ -1,0 +1,89 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+{% load martortags %}
+
+{% block title %}{{ post.title }} - Imran's Blog{% endblock %}
+
+{% block body %}
+    
+    <div class="main-wrapper">
+	    
+	    <article class="blog-post px-3 py-5 p-md-5">
+			{% if user.is_superuser %}
+			<a class="btn btn-primary" href="{% url 'blog:edit' post.slug %}" style="position: absolute; right: 0; top: 20px;">
+				<i class="fa fa-pen-square"></i>
+				Edit Post
+			</a>
+			{% endif %}
+		    <div class="container">
+			    <header class="blog-post-header">
+				    <h2 class="title mb-2">{{ post.title }}</h2>
+				    <div class="meta mb-3"><span class="date">Last edited {{ post.timestamp|date }}</span></div>
+			    </header>
+			    
+			    <div class="blog-post-body">
+				    <figure class="blog-banner">
+				        <a href="{{ post.banner }}"><img class="img-fluid" src="{{ post.banner }}" alt="image"></a>
+<!--				        <figcaption class="mt-2 text-center image-caption">Image Credit: <a href="https://made4dev.com?ref=devblog" target="_blank">made4dev.com (Premium Programming T-shirts)</a></figcaption>-->
+				    </figure>
+<!--				    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. </p>-->
+				    {{ post.content|safe_markdown }}
+
+				    
+			    <nav class="blog-nav nav nav-justified my-5">
+				  <a class="nav-link-prev nav-item nav-link rounded-left" {% if prev %} href="{% url 'blog:detail' prev.slug %}" {% else %} href="javascript:void(0)" style="background-color: grey" {% endif %}>Previous<i class="arrow-prev fas fa-long-arrow-alt-left"></i></a>
+				  <a class="nav-link-next nav-item nav-link rounded-right" {% if nxt %} href="{% url 'blog:detail' nxt.slug %}" {% else %} href="javascript:void(0)" style="background-color: grey" {% endif %}>Next<i class="arrow-next fas fa-long-arrow-alt-right"></i></a>
+				</nav>
+				
+				<div class="blog-comments-section">
+					<div id="disqus_thread"></div>
+					<script>
+					    /**
+					     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT
+					     *  THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR
+					     *  PLATFORM OR CMS.
+					     *
+					     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:
+					     *  https://disqus.com/admin/universalcode/#configuration-variables
+					     */
+
+					    var disqus_config = function () {
+					        // Replace PAGE_URL with your page's canonical URL variable
+					        this.page.url = "http://localhost:8000/blog/posts/{{ post.slug }}/";
+
+					        // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+					        this.page.identifier = "{{ post.slug }}";
+					    };
+
+
+					    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+					        var d = document, s = d.createElement('script');
+
+					        s.src = 'https://imran-blog.disqus.com/embed.js';
+
+					        s.setAttribute('data-timestamp', +new Date());
+					        (d.head || d.body).appendChild(s);
+					    })();
+					</script>
+					<noscript>
+					    Please enable JavaScript to view the
+					    <a href="https://disqus.com/?ref_noscript" rel="nofollow">
+					        comments powered by Disqus.
+					    </a>
+					</noscript>
+				</div><!--//blog-comments-section-->
+				
+		    </div><!--//container-->
+	    </article>
+	    
+	   <!-- <section class="promo-section theme-bg-light py-5 text-center">
+		    <div class="container">
+			    <h2 class="title">Promo Section Heading</h2>
+			    <p>You can use this section to promote your side projects etc. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </p>
+                <figure class="promo-figure">
+			        <a href="https://made4dev.com" target="_blank"><img class="img-fluid" src="a{% static 'ssets/images/promo-banner.jpg' %}" alt="image"></a>
+			    </figure>
+	    </section> //promo-section-->
+	    
+{% endblock %}

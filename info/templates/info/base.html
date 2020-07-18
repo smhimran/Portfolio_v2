@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="{% static 'info/assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/ultraviolet/50/000000/user.png"/>
     {% block head_block %}
 
     {% endblock %}
@@ -24,7 +25,7 @@
             <a class="nav-link {% if request.resolver_match.url_name == 'resume' %} active {% endif %}" href="{% url 'info:resume' %}">Resume</a>
           </li>
            <li class="nav-item">
-            <a class="nav-link " href="#">Blog</a>
+            <a class="nav-link " href="{% url 'blog:home' %}">Blog</a>
           </li>
          </ul>
       </div>
